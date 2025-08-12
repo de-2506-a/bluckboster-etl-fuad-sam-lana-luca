@@ -1,3 +1,5 @@
+# Instructions
+
 ![Digital Futures Academy](https://github.com/digital-futures-academy/DataScienceMasterResources/blob/main/Resources/datascience-notebook-header.png?raw=true)
 
 # Extract and Transform Team Challenge
@@ -84,3 +86,54 @@ You should submit, as a group and via the Noodle submission link, the following:
 ---
 
 ---
+
+# Setup Guide
+
+## ETL Process Setup
+
+1. **Navigate to the ETL directory**
+   ```bash
+   cd etl_process
+   ```
+
+2. **Install base requirements**
+   ```bash
+   pip install -r requirements-setup.txt
+   ```
+
+3. **Install development dependencies**
+   ```bash
+   pip install pytest pytest-cov pytest-mock pytest-postgresql flake8 sqlfluff ipykernel pandas sqlalchemy python-dotenv psycopg[binary]
+   ```
+
+4. **Install package in development mode**
+   ```bash
+   pip install -e .
+   ```
+
+5. **Create environment files**
+   - Add `.env`, `.env.dev`, `.env.test` to `etl_process` directory
+   - Required fields:
+   ```env
+   # Source Database Configuration
+   SOURCE_DB_NAME=etl_demo_dev_source
+   SOURCE_DB_USER=postgres
+   SOURCE_DB_PASSWORD=
+   SOURCE_DB_HOST=localhost
+   SOURCE_DB_PORT=5432
+
+   # Target Database Configuration
+   TARGET_DB_NAME=etl_demo_dev_source
+   TARGET_DB_USER=postgres
+   TARGET_DB_PASSWORD=
+   TARGET_DB_HOST=localhost
+   TARGET_DB_PORT=5432
+   ```
+
+6. **Run the ETL process**
+   ```bash
+   run_etl dev
+   ```
+
+## Streamlit
+TBD
