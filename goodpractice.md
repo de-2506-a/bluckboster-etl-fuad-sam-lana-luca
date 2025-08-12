@@ -1,4 +1,4 @@
-# Python Good Practices
+# Python and Git Good Practices
 
 ## 1. Function Documentation and Type Hints
 
@@ -132,4 +132,75 @@ Use f-strings for readability:
 name = "Alice"
 age = 30
 message = f"Hello {name}, you are {age} years old"
+```
+
+## 11. Git Best Practices
+
+### Commit Messages
+Use clear, descriptive commit messages:
+
+```bash
+# Good
+git commit -m "feature: Add data validation for customer records"
+git commit -m "bugfix: Fix SQL query timeout in database connection"
+git commit -m "formatting: Update README with setup instructions"
+
+# Bad
+git commit -m "fix"
+git commit -m "updates"
+```
+
+### Branch Naming
+Use descriptive branch names:
+
+```bash
+# Good
+git checkout -b feature/customer-analysis
+git checkout -b bugfix/database-connection
+git checkout -b hotfix/critical-data-error
+
+# Bad
+git checkout -b temp
+git checkout -b my-branch
+```
+
+### Workflow
+Follow a clean workflow:
+
+```bash
+# 1. Pull latest changes
+git pull origin main
+
+# 2. Create feature branch
+git checkout -b feature/new-analysis
+
+# 3. Make changes and commit frequently
+git add .
+git commit -m "Add initial data extraction logic"
+
+# 4. Push and create pull request
+git push origin feature/new-analysis
+```
+
+### .gitignore
+Always include relevant files:
+
+```gitignore
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data files
+*.csv
+*.json
+data/
+
+# IDE
+.vscode/
+.idea/
 ```
