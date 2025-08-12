@@ -138,6 +138,7 @@ message = f"Hello {name}, you are {age} years old"
 
 ### Commit Messages
 Use clear, descriptive commit messages:
+One feature per commit, if the message contains the word "and" then it should be 2 commits
 
 ```bash
 # Good
@@ -148,6 +149,7 @@ git commit -m "formatting: Update README with setup instructions"
 # Bad
 git commit -m "fix"
 git commit -m "updates"
+git commit -m "Added this feature and fixed this bug"
 ```
 
 ### Branch Naming
