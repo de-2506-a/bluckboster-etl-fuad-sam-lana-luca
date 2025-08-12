@@ -1,4 +1,4 @@
-# Python Good Practices
+# Python and Git Good Practices
 
 ## 1. Function Documentation and Type Hints
 
@@ -132,4 +132,84 @@ Use f-strings for readability:
 name = "Alice"
 age = 30
 message = f"Hello {name}, you are {age} years old"
+```
+
+## 11. Git Best Practices
+
+### Commit Messages
+> - Use clear, descriptive commit messages:
+> - One feature per commit, if the message contains the word "and" then it should be 2 commits
+> - Prefix a commit with the type of commit:
+> - - fix: bugfix
+> - - feat:  new feature
+> - - docs: doc change
+> - - perf: performance improvement
+> - - test: adds or modifies tests
+> - - refactor: code change that doesnt change functionality
+> - - style: change that doesnt change the meaning of the code (whitespace, comments, formatting, etc)
+```bash
+# Good
+git commit -m "feat: Add data validation for customer records"
+git commit -m "fix: Fix SQL query timeout in database connection"
+git commit -m "docs: Update README with setup instructions"
+
+# Bad
+git commit -m "fix"
+git commit -m "updates"
+git commit -m "Added this feature and fixed this bug"
+```
+
+### Branch Naming
+Use descriptive branch names:
+
+```bash
+# Good
+git checkout -b feature/customer-analysis
+git checkout -b bugfix/database-connection
+git checkout -b hotfix/critical-data-error
+
+# Bad
+git checkout -b temp
+git checkout -b my-branch
+```
+
+### Workflow
+Follow a clean workflow:
+
+```bash
+# 1. Pull latest changes
+git pull origin main
+
+# 2. Create feature branch
+git checkout -b feature/new-analysis
+
+# 3. Make changes and commit frequently
+git add .
+git commit -m "Add initial data extraction logic"
+
+# 4. Push and create pull request
+git push origin feature/new-analysis
+```
+
+### .gitignore
+Always include relevant files:
+
+```gitignore
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data files
+*.csv
+*.json
+data/
+
+# IDE
+.vscode/
+.idea/
 ```
