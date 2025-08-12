@@ -1,3 +1,4 @@
+asn1crypto==1.5.1
 asttokens==3.0.0
 chardet==5.2.0
 click==8.2.1
@@ -7,6 +8,7 @@ coverage==7.10.3
 debugpy==1.8.16
 decorator==5.2.1
 diff_cover==9.6.0
+-e git+ssh://git@github.com/de-2506-a/bluckboster-etl-fuad-sam-lana-luca.git@c473f0c96470d85828c0249651d4bea862bbdcea#egg=ETL_Project_Walkthough
 executing==2.2.0
 flake8==7.3.0
 greenlet==3.2.4
@@ -29,12 +31,14 @@ pandas==2.3.1
 parso==0.8.4
 pathspec==0.12.1
 pexpect==4.9.0
+pg8000==1.31.4
 platformdirs==4.3.8
 pluggy==1.6.0
 port-for==0.7.4
 prompt_toolkit==3.0.51
 psutil==7.0.0
 psycopg==3.2.9
+psycopg2==2.9.10
 ptyprocess==0.7.0
 pure_eval==0.2.3
 pycodestyle==2.14.0
@@ -50,6 +54,7 @@ pytz==2025.2
 PyYAML==6.0.2
 pyzmq==27.0.1
 regex==2025.7.34
+scramp==1.4.6
 setuptools==78.1.0
 six==1.17.0
 SQLAlchemy==2.0.43
