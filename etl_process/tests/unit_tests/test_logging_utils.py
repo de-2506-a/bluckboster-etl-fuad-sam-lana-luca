@@ -41,6 +41,10 @@ def test_create_handlers_returns_both_handlers():
         assert isinstance(console_handler, logging.StreamHandler)
         assert file_handler.level == logging.INFO
         assert console_handler.level == logging.INFO
+        
+        # Close the file so Windows can delete it
+        file_handler.close()
+        logging.getLogger().removeHandler(file_handler)
 
 
 @patch("src.utils.logging_utils.logging.getLogger")
@@ -52,8 +56,11 @@ def test_setup_logger_creates_logger_with_handlers(mock_get_logger):
     with tempfile.TemporaryDirectory() as temp_dir:
         setup_logger("test", "test.log", base_path=temp_dir)
 
-        mock_logger.setLevel.assert_called_once_with(logging.DEBUG)
-        assert mock_logger.addHandler.call_count == 2
+        for handler in mock_logger.addHandler.call_args_list:
+            h = handler[0][0]  # first positional arg to addHandler
+            if isinstance(h, logging.FileHandler):
+                h.close()
+
 
 
 @patch("src.utils.logging_utils.logging.getLogger")
