@@ -12,6 +12,28 @@ def show_movies_with_actors():
     """
     Displays a list of movies and shows actors when a movie is selected
     """
+    # Add CSS for hover effects
+    st.markdown("""
+    <style>
+    .actor-card {
+        background-color: #e8f4fd;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 5px 0;
+        text-align: center;
+        border-left: 4px solid #3498db;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    .actor-card:hover {
+        background-color: #d4edda;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-left: 4px solid #28a745;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
     st.markdown(
         "<h1 style='text-align: center; color: #1f77b4;'>"
         "🎬 Movies and Their Actors"
@@ -70,9 +92,7 @@ def show_movies_with_actors():
         for i, actor in enumerate(actors_df['full_name']):
             with cols[i % 3]:
                 st.markdown(
-                    f"<div style='background-color: #e8f4fd; padding: 15px; "
-                    f"border-radius: 8px; margin: 5px 0; text-align: center; "
-                    f"border-left: 4px solid #3498db;'>"
+                    f"<div class='actor-card'>"
                     f"<p style='margin: 0; font-weight: bold; color: #2c3e50;'>"
                     f"🎭 {actor}</p></div>",
                     unsafe_allow_html=True
