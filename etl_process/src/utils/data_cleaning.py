@@ -24,7 +24,7 @@ class DataCleaner:
         # Create a copy as an attribute
         self.df = df.copy()
 
-    def clean_values(self, fill_value: any = None) -> Self:
+    def clean_values(self, fill_value: any = None, by_column=None) -> Self:
         """
         Generically cleans a Pandas DataFrame:
         - Removes duplicated rows
@@ -36,12 +36,16 @@ class DataCleaner:
         - The input DataFrame
         fill_value : Any, optional
         - Value to use to fill missing values, defaults to None
+        by_column : str, optional
+        - If set to None, it dont work
         """
         # 1. Remove duplicates
-        self.df = self.df.drop_duplicates()
+        self.df = self.df.drop_duplicates(keep="first")
 
         # 2. Handle missing values
-        if fill_value is not None:
+        if by_column is not None and fill_value is not None:
+            self.df[by_column] = self.df[by_column].fillna(fill_value)
+        elif fill_value is not None:
             self.df = self.df.fillna(fill_value)
 
         return self
@@ -80,9 +84,9 @@ class DataCleaner:
         return self
 
     def convert_column_to_numeric(self, column_name: str) -> Self:
-        # Convert to numeric and drop NaNs
-        self.df[column_name] = pd.to_numeric(self.da[column_name], errors="coerce")
-        self.df.dropna(subset=[column_name], inplace=True)
+        # Convert column to numeric
+        self.df[column_name] = pd.to_numeric(self.df[column_name], errors="coerce")
+        return self
 
     def get_df(self) -> pd.DataFrame:
         """Return the cleaned DataFrame. Call when finished processing."""
