@@ -3,6 +3,7 @@ from pages.home import show_home
 from pages.actors import show_actors
 from pages.films import show_films
 from pages.revenue import show_revenue
+from pages.customers import show_customers
 
 
 def main():
@@ -32,6 +33,8 @@ def main():
         show_films()
     elif page == "Revenue Insights":
         show_revenue()
+    elif page == "Customer Insights":
+        show_customers()
 
 
 
