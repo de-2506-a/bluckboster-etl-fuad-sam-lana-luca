@@ -1,9 +1,9 @@
-import streamlit as st
 from nav_pages.home import show_home
 from nav_pages.actors import show_actors
 from nav_pages.films import show_films
 from nav_pages.revenue import show_revenue
 from nav_pages.movies_with_actors import show_movies_with_actors
+from nav_pages.customers import show_customers
 
 
 def main():
@@ -39,8 +39,13 @@ def main():
         show_films()
     elif page == "Revenue Insights":
         show_revenue()
+
     elif page == "Movies with Actors":
         show_movies_with_actors()
+
+    elif page == "Customer Insights":
+        show_customers()
+
 
 
 
