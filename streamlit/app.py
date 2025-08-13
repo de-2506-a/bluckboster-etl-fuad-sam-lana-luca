@@ -1,8 +1,8 @@
 import streamlit as st
-from pages.home import show_home
-from pages.actors import show_actors
-from pages.films import show_films
-from pages.revenue import show_revenue
+from nav_pages.home import show_home
+from nav_pages.actors import show_actors
+from nav_pages.films import show_films
+from nav_pages.revenue import show_revenue
 
 
 def main():
@@ -21,7 +21,12 @@ def main():
     # Sidebar navigation
     page = st.sidebar.selectbox(
         "Navigate to:",
-        ["Home", "Best Selling Actors", "Film Analysis", "Revenue Insights"]
+        [
+            "Home",
+            "Best Selling Actors",
+            "Film Analysis",
+            "Revenue Insights"
+        ]
     )
     
     if page == "Home":
