@@ -4,6 +4,10 @@ from src.utils.data_cleaning import DataCleaner
 
 
 def test_data_cleaner():
+
+    # TODO: TEST THE NUMERIC CONVERSIIONS
+    # TODO: TEST THE UNITS IN ISOLATION
+
     # Create a sample DataFrame with duplicates,
     # missing values, and mixed date formats
     df = pd.DataFrame(

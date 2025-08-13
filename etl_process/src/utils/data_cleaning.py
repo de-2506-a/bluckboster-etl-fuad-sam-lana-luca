@@ -1,31 +1,30 @@
 import pandas as pd
-
-
-"""
-Usage:
-df = pd.DataFrame({
-    "Name": [" Alice ", "Bob", "Alice "],
-    "Age": [25, 30, None],
-    "Join Date": ["2021-01-05", "05 Feb 2021", "2021/01/05"]
-})
-
-dc = DataCleaner(df)
-cleaned_df = (
-    dc.standardise_dates("Join Date")
-      .clean_values(fill_value="ZERO")
-      .get_df()
-)
-
-print(cleaned_df)
-"""
+from typing import Self
 
 
 class DataCleaner:
+    """
+    Usage:
+    df = pd.DataFrame({
+        "Name": [" Alice ", "Bob", "Alice "],
+        "Age": [25, 30, None],
+        "Join Date": ["2021-01-05", "05 Feb 2021", "2021/01/05"]
+    })
+
+    dc = DataCleaner(df)
+    cleaned_df = (
+        dc.standardise_dates("Join Date")
+        .clean_values(fill_value="ZERO")
+        .get_df()
+    )
+
+    print(cleaned_df)
+    """
     def __init__(self, df: pd.DataFrame):
         # Create a copy as an attribute
         self.df = df.copy()
 
-    def clean_values(self, fill_value=None):
+    def clean_values(self, fill_value: any = None) -> Self:
         """
         Generically cleans a Pandas DataFrame:
         - Removes duplicated rows
@@ -48,7 +47,7 @@ class DataCleaner:
         return self
 
     @staticmethod
-    def _standardise_datestring(date_str) -> pd.Timestamp:
+    def _standardise_datestring(date_str: str) -> pd.Timestamp:
         """Tries parsing a date string into a pandas Timestamp."""
         if pd.isna(date_str) or date_str == "":
             return pd.NaT
@@ -71,7 +70,7 @@ class DataCleaner:
 
         return pd.NaT
 
-    def standardise_date_column(self, column_name: str):
+    def standardise_date_column(self, column_name: str) -> Self:
         """
         Converts a date column into dd/mm/yyyy format
         using _standardise_datestring.
@@ -79,6 +78,11 @@ class DataCleaner:
         self.df[column_name] = self.df[column_name].apply(self._standardise_datestring)
         self.df[column_name] = self.df[column_name].dt.strftime("%d/%m/%Y")
         return self
+
+    def convert_column_to_numeric(self, column_name: str) -> Self:
+        # Convert to numeric and drop NaNs
+        self.df[column_name] = pd.to_numeric(self.da[column_name], errors="coerce")
+        self.df.dropna(subset=[column_name], inplace=True)
 
     def get_df(self) -> pd.DataFrame:
         """Return the cleaned DataFrame. Call when finished processing."""
