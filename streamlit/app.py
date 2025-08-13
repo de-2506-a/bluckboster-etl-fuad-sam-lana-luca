@@ -28,7 +28,8 @@ def main():
             "Best Selling Actors",
             "Film Analysis",
             "Revenue Insights",
-            "Movies with Actors"
+            "Movies with Actors",
+            "Customer Insights"
         ]
     )
     
