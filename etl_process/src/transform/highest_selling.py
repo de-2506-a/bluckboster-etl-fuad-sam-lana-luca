@@ -7,7 +7,7 @@ sys.path.append(str(Path(__file__).parent.parent))
 # Pathing is used to manage file paths relatively and regardless of execution directory
 
 
-def get_highest_selling() -> pd.DataFrame | None:
+def get_highest_selling(amount: int = 25) -> pd.DataFrame | None:
     """
     Fetch the highest selling movies
 
@@ -25,7 +25,7 @@ def get_highest_selling() -> pd.DataFrame | None:
             return None
         with open(sql_file_path, "r") as query_file:
             query = query_file.read()
-        df = pd.read_sql_query(query, engine).head(25) # If something doesn't work it's this
+        df = pd.read_sql_query(query, engine).head(amount) # If something doesn't work it's this
 
         if df.empty:
             print("Warning: Query returned no results")
