@@ -27,6 +27,8 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
+etl_process/*.egg_info/
+etl_process/*.egg
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -39,7 +41,7 @@ pip-log.txt
 pip-delete-this-directory.txt
 
 # Unit test / coverage reports
-htmlcov/
+etl_process/htmlcov/
 .tox/
 .nox/
 .coverage
@@ -52,6 +54,8 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 pytestdebug.log
+etl_process/.coverage
+etl_process/.coverage.*
 
 # Translations
 *.mo
@@ -99,13 +103,20 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-# .env      # Should not be committed left for demo
-# .env.*    # Should not be committed left for demo
+.env
+.env.*    
 .venv
 venv/
 ENV/
 env.bak/
 venv.bak/
+etl_process/.env
+etl_process/.env.*    
+etl_process/.venv
+etl_process/venv/
+etl_process/ENV/
+etl_process/env.bak/
+etl_process/venv.bak/
 
 # Spyder project settings
 .spyderproject
@@ -148,6 +159,7 @@ cython_debug/
 # Logs
 logs/
 *.log
+etl_process/logs
 
 # Temporary files
 tmp/
