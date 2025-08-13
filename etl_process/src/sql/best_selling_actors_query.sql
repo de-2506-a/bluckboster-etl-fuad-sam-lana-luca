@@ -2,6 +2,7 @@ SELECT
     a.first_name,
     a.last_name,
     f.title,
+    f.release_year,
     SUM(p.amount) as total_revenue
 FROM
     film as f
@@ -26,6 +27,6 @@ INNER JOIN
 ON
     r.rental_id = p.rental_id
 GROUP BY
-    a.first_name, a.last_name, f.title
+    a.first_name, a.last_name, f.title,f.release_year
 ORDER BY 
     total_revenue DESC
