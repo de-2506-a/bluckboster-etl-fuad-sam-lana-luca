@@ -1,3 +1,4 @@
+import streamlit as st
 from nav_pages.home import show_home
 from nav_pages.actors import show_actors
 from nav_pages.films import show_films
