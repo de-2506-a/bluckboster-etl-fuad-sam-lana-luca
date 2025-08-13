@@ -26,7 +26,6 @@ def main():
         [
             "Home",
             "Best Selling Actors",
-            "Film Analysis",
             "Revenue Insights",
             "Movies with Actors",
             "Customer Insights"
