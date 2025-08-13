@@ -137,14 +137,21 @@ message = f"Hello {name}, you are {age} years old"
 ## 11. Git Best Practices
 
 ### Commit Messages
-Use clear, descriptive commit messages:
-One feature per commit, if the message contains the word "and" then it should be 2 commits
-
+> - Use clear, descriptive commit messages:
+> - One feature per commit, if the message contains the word "and" then it should be 2 commits
+> - Prefix a commit with the type of commit:
+> - - fix: bugfix
+> - - feat:  new feature
+> - - docs: doc change
+> - - perf: performance improvement
+> - - test: adds or modifies tests
+> - - refactor: code change that doesnt change functionality
+> - - style: change that doesnt change the meaning of the code (whitespace, comments, formatting, etc)
 ```bash
 # Good
-git commit -m "feature: Add data validation for customer records"
-git commit -m "bugfix: Fix SQL query timeout in database connection"
-git commit -m "formatting: Update README with setup instructions"
+git commit -m "feat: Add data validation for customer records"
+git commit -m "fix: Fix SQL query timeout in database connection"
+git commit -m "docs: Update README with setup instructions"
 
 # Bad
 git commit -m "fix"

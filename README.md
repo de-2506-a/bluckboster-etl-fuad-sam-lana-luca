@@ -106,12 +106,16 @@ You should submit, as a group and via the Noodle submission link, the following:
    pip install pytest pytest-cov pytest-mock pytest-postgresql flake8 sqlfluff ipykernel pandas sqlalchemy python-dotenv psycopg[binary]
    ```
 
-4. **Install package in development mode**
+4. **Create requirements.txt** 
+      ```bash
+      pip freeze > requirements.txt
+      ```
+5. **Install package in development mode**
    ```bash
    pip install -e .
    ```
 
-5. **Create environment files**
+6. **Create environment files**
    - Add `.env`, `.env.dev`, `.env.test` to `etl_process` directory
    - Required fields:
    ```env
@@ -129,11 +133,15 @@ You should submit, as a group and via the Noodle submission link, the following:
    TARGET_DB_HOST=localhost
    TARGET_DB_PORT=5432
    ```
+   Note: environment variables should not be in the repo, ensure they are in the .gitignore
 
-6. **Run the ETL process**
+7. **Run the ETL process**
    ```bash
    run_etl dev
    ```
 
 ## Streamlit
 TBD
+
+
+# Project Structure
